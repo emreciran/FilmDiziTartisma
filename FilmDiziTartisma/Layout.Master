@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.Master.cs" Inherits="FilmDiziTartisma.MasterPage" %>
+
+<%@ Register Src="~/UserControl/UserMenu.ascx" TagPrefix="uc1" TagName="UserMenu" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner" style="display: flex; justify-content: space-between;">
+
+                <!-- Logo -->
+                <asp:HyperLink ID="HyperLink2" class="logo" NavigateUrl="~/AnaSayfa" runat="server">
+								<span class="symbol"><img src="../../images/logo.svg" alt="" /></span><span class="title">FilmDizi</span>
+                </asp:HyperLink>
+
+                <asp:Label ID="user_email" runat="server" Text=""></asp:Label>
+
+                <form id="form_cikis_yap" runat="server">
+                    <asp:Button ID="btn_cikis_yap" runat="server" style="padding: 0 .5rem 0 .5rem" Text="Çıkış Yap" OnClick="btn_cikis_yap_Click" />
+                </form>    
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <uc1:UserMenu runat="server" ID="UserMenu" />
+            </ul>
+        </nav>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>FILMDIZI</h2>
+                </section>
+                <section>
+                    <h2>Takip</h2>
+
+                    <ul class="icons">
+                        <li>
+                            <asp:HyperLink ID="HyperLink18" runat="server" class="icon brands style2 fa-github" Target="_blank" NavigateUrl="https://github.com/emreciran">
+											<span class="label">GitHub</span>
+                            </asp:HyperLink>
+                        </li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Emre Efe Ciran. All rights reserved</li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

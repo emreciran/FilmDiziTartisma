@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace FilmDiziTartisma
 {
-    public partial class Generic : System.Web.UI.Page
+    public partial class Details : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

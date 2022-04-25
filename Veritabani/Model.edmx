@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FilmDiziModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dizi_Kategori">
+          <Key>
+            <PropertyRef Name="dizi_kategori_id" />
+          </Key>
+          <Property Name="dizi_kategori_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dizi_id" Type="int" Nullable="false" />
+          <Property Name="kategori_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dizi_Oyuncu">
+          <Key>
+            <PropertyRef Name="dizi_oyuncu_id" />
+          </Key>
+          <Property Name="dizi_oyuncu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dizi_id" Type="int" Nullable="false" />
+          <Property Name="oyuncu_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Diziler">
+          <Key>
+            <PropertyRef Name="dizi_id" />
+          </Key>
+          <Property Name="dizi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="diziAd" Type="nvarchar(max)" />
+          <Property Name="diziSezonsayisi" Type="int" />
+          <Property Name="diziYayintarihi" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMDB" Type="nvarchar" MaxLength="10" />
+          <Property Name="diziAciklama" Type="nvarchar(max)" />
+          <Property Name="diziVideo" Type="nvarchar(max)" />
+          <Property Name="diziYonetmen" Type="nvarchar" MaxLength="50" />
+          <Property Name="diziFoto" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Film_Kategori">
+          <Key>
+            <PropertyRef Name="film_kategori_id" />
+          </Key>
+          <Property Name="film_kategori_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="kategori_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Film_Oyuncu">
+          <Key>
+            <PropertyRef Name="film_oyuncu_id" />
+          </Key>
+          <Property Name="film_oyuncu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="oyuncu_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Filmler">
+          <Key>
+            <PropertyRef Name="film_id" />
+          </Key>
+          <Property Name="film_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filmAd" Type="nvarchar(max)" />
+          <Property Name="filmSuresi" Type="nvarchar(max)" />
+          <Property Name="IMDB" Type="nvarchar" MaxLength="10" />
+          <Property Name="filmAciklama" Type="nvarchar(max)" />
+          <Property Name="filmVideo" Type="nvarchar(max)" />
+          <Property Name="filmYonetmen" Type="nvarchar" MaxLength="50" />
+          <Property Name="filmYayintarihi" Type="nvarchar" MaxLength="50" />
+          <Property Name="filmFoto" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="kategori_id" />
+          </Key>
+          <Property Name="kategori_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menuAdi" Type="nvarchar(max)" />
+          <Property Name="menuAdres" Type="nvarchar(max)" />
+          <Property Name="menuSira" Type="int" />
+          <Property Name="menuYetki" Type="nvarchar(max)" />
+          <Property Name="menuDurum" Type="int" />
+        </EntityType>
+        <EntityType Name="Oyuncular">
+          <Key>
+            <PropertyRef Name="oyuncu_id" />
+          </Key>
+          <Property Name="oyuncu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oyuncuAd" Type="nvarchar(max)" />
+          <Property Name="oyuncuSoyad" Type="nvarchar(max)" />
+          <Property Name="oyuncuFoto" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Uyeler">
+          <Key>
+            <PropertyRef Name="uye_id" />
+          </Key>
+          <Property Name="uye_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uyeAd" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="uyeSoyad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="cinsiyet" Type="bit" />
+          <Property Name="uyeEmail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="uyePassword" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fotograf" Type="image" />
+          <Property Name="uyeYetki" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Yonetmenler">
+          <Key>
+            <PropertyRef Name="yonetmen_id" />
+          </Key>
+          <Property Name="yonetmen_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yonetmenAd" Type="nvarchar(max)" />
+          <Property Name="yonetmenSoyad" Type="nvarchar(max)" />
+          <Property Name="yonetmenFotoPath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="yorum_id" />
+          </Key>
+          <Property Name="yorum_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="yorumAdSoyad" Type="nvarchar(max)" />
+          <Property Name="yorumEmail" Type="nvarchar(max)" />
+          <Property Name="yorumIcerik" Type="nvarchar(max)" />
+          <Property Name="yorumTarih" Type="nvarchar" MaxLength="50" />
+          <Property Name="yorumOnay" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="FilmDiziModelStoreContainer">
+          <EntitySet Name="Dizi_Kategori" EntityType="Self.Dizi_Kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dizi_Oyuncu" EntityType="Self.Dizi_Oyuncu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diziler" EntityType="Self.Diziler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Film_Kategori" EntityType="Self.Film_Kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Film_Oyuncu" EntityType="Self.Film_Oyuncu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Filmler" EntityType="Self.Filmler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oyuncular" EntityType="Self.Oyuncular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uyeler" EntityType="Self.Uyeler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yonetmenler" EntityType="Self.Yonetmenler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FilmDiziModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dizi_Kategori">
+          <Key>
+            <PropertyRef Name="dizi_kategori_id" />
+          </Key>
+          <Property Name="dizi_kategori_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dizi_id" Type="Int32" Nullable="false" />
+          <Property Name="kategori_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dizi_Oyuncu">
+          <Key>
+            <PropertyRef Name="dizi_oyuncu_id" />
+          </Key>
+          <Property Name="dizi_oyuncu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dizi_id" Type="Int32" Nullable="false" />
+          <Property Name="oyuncu_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Diziler">
+          <Key>
+            <PropertyRef Name="dizi_id" />
+          </Key>
+          <Property Name="dizi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diziAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diziSezonsayisi" Type="Int32" />
+          <Property Name="diziYayintarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMDB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="diziAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diziVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diziYonetmen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diziFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Film_Kategori">
+          <Key>
+            <PropertyRef Name="film_kategori_id" />
+          </Key>
+          <Property Name="film_kategori_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="film_id" Type="Int32" Nullable="false" />
+          <Property Name="kategori_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Film_Oyuncu">
+          <Key>
+            <PropertyRef Name="film_oyuncu_id" />
+          </Key>
+          <Property Name="film_oyuncu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="film_id" Type="Int32" Nullable="false" />
+          <Property Name="oyuncu_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Filmler">
+          <Key>
+            <PropertyRef Name="film_id" />
+          </Key>
+          <Property Name="film_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filmAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filmSuresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMDB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="filmAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filmVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filmYonetmen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="filmYayintarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="filmFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="kategori_id" />
+          </Key>
+          <Property Name="kategori_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="menuAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="menuSira" Type="Int32" />
+          <Property Name="menuYetki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="menuDurum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Oyuncular">
+          <Key>
+            <PropertyRef Name="oyuncu_id" />
+          </Key>
+          <Property Name="oyuncu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oyuncuAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="oyuncuSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="oyuncuFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Uyeler">
+          <Key>
+            <PropertyRef Name="uye_id" />
+          </Key>
+          <Property Name="uye_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uyeAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uyeSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cinsiyet" Type="Boolean" />
+          <Property Name="uyeEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uyePassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fotograf" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="uyeYetki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Yonetmenler">
+          <Key>
+            <PropertyRef Name="yonetmen_id" />
+          </Key>
+          <Property Name="yonetmen_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yonetmenAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yonetmenSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yonetmenFotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Yorumlar">
+          <Key>
+            <PropertyRef Name="yorum_id" />
+          </Key>
+          <Property Name="yorum_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="yorumAdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yorumEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yorumIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yorumTarih" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yorumOnay" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="FilmDiziEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dizi_Kategori" EntityType="Self.Dizi_Kategori" />
+          <EntitySet Name="Dizi_Oyuncu" EntityType="Self.Dizi_Oyuncu" />
+          <EntitySet Name="Diziler" EntityType="Self.Diziler" />
+          <EntitySet Name="Film_Kategori" EntityType="Self.Film_Kategori" />
+          <EntitySet Name="Film_Oyuncu" EntityType="Self.Film_Oyuncu" />
+          <EntitySet Name="Filmler" EntityType="Self.Filmler" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="Oyuncular" EntityType="Self.Oyuncular" />
+          <EntitySet Name="Uyeler" EntityType="Self.Uyeler" />
+          <EntitySet Name="Yonetmenler" EntityType="Self.Yonetmenler" />
+          <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FilmDiziModelStoreContainer" CdmEntityContainer="FilmDiziEntities">
+          <EntitySetMapping Name="Dizi_Kategori">
+            <EntityTypeMapping TypeName="FilmDiziModel.Dizi_Kategori">
+              <MappingFragment StoreEntitySet="Dizi_Kategori">
+                <ScalarProperty Name="dizi_kategori_id" ColumnName="dizi_kategori_id" />
+                <ScalarProperty Name="dizi_id" ColumnName="dizi_id" />
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dizi_Oyuncu">
+            <EntityTypeMapping TypeName="FilmDiziModel.Dizi_Oyuncu">
+              <MappingFragment StoreEntitySet="Dizi_Oyuncu">
+                <ScalarProperty Name="dizi_oyuncu_id" ColumnName="dizi_oyuncu_id" />
+                <ScalarProperty Name="dizi_id" ColumnName="dizi_id" />
+                <ScalarProperty Name="oyuncu_id" ColumnName="oyuncu_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diziler">
+            <EntityTypeMapping TypeName="FilmDiziModel.Diziler">
+              <MappingFragment StoreEntitySet="Diziler">
+                <ScalarProperty Name="dizi_id" ColumnName="dizi_id" />
+                <ScalarProperty Name="diziAd" ColumnName="diziAd" />
+                <ScalarProperty Name="diziSezonsayisi" ColumnName="diziSezonsayisi" />
+                <ScalarProperty Name="diziYayintarihi" ColumnName="diziYayintarihi" />
+                <ScalarProperty Name="IMDB" ColumnName="IMDB" />
+                <ScalarProperty Name="diziAciklama" ColumnName="diziAciklama" />
+                <ScalarProperty Name="diziVideo" ColumnName="diziVideo" />
+                <ScalarProperty Name="diziYonetmen" ColumnName="diziYonetmen" />
+                <ScalarProperty Name="diziFoto" ColumnName="diziFoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Film_Kategori">
+            <EntityTypeMapping TypeName="FilmDiziModel.Film_Kategori">
+              <MappingFragment StoreEntitySet="Film_Kategori">
+                <ScalarProperty Name="film_kategori_id" ColumnName="film_kategori_id" />
+                <ScalarProperty Name="film_id" ColumnName="film_id" />
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Film_Oyuncu">
+            <EntityTypeMapping TypeName="FilmDiziModel.Film_Oyuncu">
+              <MappingFragment StoreEntitySet="Film_Oyuncu">
+                <ScalarProperty Name="film_oyuncu_id" ColumnName="film_oyuncu_id" />
+                <ScalarProperty Name="film_id" ColumnName="film_id" />
+                <ScalarProperty Name="oyuncu_id" ColumnName="oyuncu_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filmler">
+            <EntityTypeMapping TypeName="FilmDiziModel.Filmler">
+              <MappingFragment StoreEntitySet="Filmler">
+                <ScalarProperty Name="film_id" ColumnName="film_id" />
+                <ScalarProperty Name="filmAd" ColumnName="filmAd" />
+                <ScalarProperty Name="filmSuresi" ColumnName="filmSuresi" />
+                <ScalarProperty Name="IMDB" ColumnName="IMDB" />
+                <ScalarProperty Name="filmAciklama" ColumnName="filmAciklama" />
+                <ScalarProperty Name="filmVideo" ColumnName="filmVideo" />
+                <ScalarProperty Name="filmYonetmen" ColumnName="filmYonetmen" />
+                <ScalarProperty Name="filmYayintarihi" ColumnName="filmYayintarihi" />
+                <ScalarProperty Name="filmFoto" ColumnName="filmFoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="FilmDiziModel.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+                <ScalarProperty Name="kategoriAd" ColumnName="kategoriAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="FilmDiziModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="menuAdi" ColumnName="menuAdi" />
+                <ScalarProperty Name="menuAdres" ColumnName="menuAdres" />
+                <ScalarProperty Name="menuSira" ColumnName="menuSira" />
+                <ScalarProperty Name="menuYetki" ColumnName="menuYetki" />
+                <ScalarProperty Name="menuDurum" ColumnName="menuDurum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oyuncular">
+            <EntityTypeMapping TypeName="FilmDiziModel.Oyuncular">
+              <MappingFragment StoreEntitySet="Oyuncular">
+                <ScalarProperty Name="oyuncu_id" ColumnName="oyuncu_id" />
+                <ScalarProperty Name="oyuncuAd" ColumnName="oyuncuAd" />
+                <ScalarProperty Name="oyuncuSoyad" ColumnName="oyuncuSoyad" />
+                <ScalarProperty Name="oyuncuFoto" ColumnName="oyuncuFoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uyeler">
+            <EntityTypeMapping TypeName="FilmDiziModel.Uyeler">
+              <MappingFragment StoreEntitySet="Uyeler">
+                <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+                <ScalarProperty Name="uyeAd" ColumnName="uyeAd" />
+                <ScalarProperty Name="uyeSoyad" ColumnName="uyeSoyad" />
+                <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+                <ScalarProperty Name="uyeEmail" ColumnName="uyeEmail" />
+                <ScalarProperty Name="uyePassword" ColumnName="uyePassword" />
+                <ScalarProperty Name="fotograf" ColumnName="fotograf" />
+                <ScalarProperty Name="uyeYetki" ColumnName="uyeYetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yonetmenler">
+            <EntityTypeMapping TypeName="FilmDiziModel.Yonetmenler">
+              <MappingFragment StoreEntitySet="Yonetmenler">
+                <ScalarProperty Name="yonetmen_id" ColumnName="yonetmen_id" />
+                <ScalarProperty Name="yonetmenAd" ColumnName="yonetmenAd" />
+                <ScalarProperty Name="yonetmenSoyad" ColumnName="yonetmenSoyad" />
+                <ScalarProperty Name="yonetmenFotoPath" ColumnName="yonetmenFotoPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yorumlar">
+            <EntityTypeMapping TypeName="FilmDiziModel.Yorumlar">
+              <MappingFragment StoreEntitySet="Yorumlar">
+                <ScalarProperty Name="yorum_id" ColumnName="yorum_id" />
+                <ScalarProperty Name="yorumAdSoyad" ColumnName="yorumAdSoyad" />
+                <ScalarProperty Name="yorumEmail" ColumnName="yorumEmail" />
+                <ScalarProperty Name="yorumIcerik" ColumnName="yorumIcerik" />
+                <ScalarProperty Name="yorumTarih" ColumnName="yorumTarih" />
+                <ScalarProperty Name="yorumOnay" ColumnName="yorumOnay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
