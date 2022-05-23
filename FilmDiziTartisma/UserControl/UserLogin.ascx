@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserLogin.ascx.cs" Inherits="FilmDiziTartisma.UserControl.UserLogin" %>
 
-<div class="forms">
+<div class="forms" style="display:flex; justify-content:center; align-items:center;">
     <div class="form login">
         <span class="title">Giriş yap</span>
 

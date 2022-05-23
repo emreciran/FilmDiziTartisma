@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminLayout.Master" AutoEventWireup="true" CodeBehind="Kategori.aspx.cs" Inherits="FilmDiziTartisma.Admin.Kategori" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminLayout.Master" AutoEventWireup="true" CodeBehind="Kategori.aspx.cs" Inherits="FilmDiziTartisma.Admin.Kategori" EnableEventValidation="false" %>
 
 <%@ Register Src="~/UserControl/Admin/UserKategori.ascx" TagPrefix="uc1" TagName="UserKategori" %>
 

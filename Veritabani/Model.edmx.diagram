@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0a0cb7601e0c4fd09ae091b29c7a7fdf" Name="Diagram1">
+      <Diagram DiagramId="cfdc80f0ce624bb8a85eaa217ba0ada8" Name="Diagram1">
         <EntityTypeShape EntityType="FilmDiziModel.Dizi_Kategori" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmDiziModel.Dizi_Oyuncu" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmDiziModel.Diziler" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />

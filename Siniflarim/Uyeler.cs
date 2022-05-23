@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Veritabani;
-
 
 namespace Siniflarim
 {
@@ -32,14 +30,15 @@ namespace Siniflarim
                 return "0";
         }
 
-        public string VeriGuncelle(int uyeID, string ad, string soyad, string email, string password)
+        public string VeriGuncelle(int uyeID, string ad, string soyad, string email, string password, string yetki)
         {
-            var aranan = db.Uyeler.Where(p => p.uye_id == uyeID).ToList().FirstOrDefault();
+            var aranan = db.Uyeler.Where(p => p.uye_id == uyeID).FirstOrDefault();
 
             aranan.uyeAd = ad;
             aranan.uyeSoyad = soyad;
             aranan.uyeEmail = email;
             aranan.uyePassword = password;
+            aranan.uyeYetki = yetki;
 
             db.SaveChanges();
 
@@ -83,7 +82,7 @@ namespace Siniflarim
         public List<Veritabani.Uyeler> Listele()
         {
             var data = db.Uyeler.ToList();
-
+            
             return data;
         }
 
@@ -110,6 +109,31 @@ namespace Siniflarim
 
             else
                 return "0";
+        }
+
+        public string YetkiGuncelle(int id, string yetki)
+        {
+            var aranan = db.Uyeler.Where(p => p.uye_id == id).FirstOrDefault();
+
+            aranan.uyeYetki = yetki;
+            int sonuc = db.SaveChanges();
+
+            if (sonuc == 1)
+                return "1";
+
+            else
+                return "0";
+        }
+
+        public List<Veritabani.Uyeler> GetByKullaniciID(int id)
+        {
+            List<Veritabani.Uyeler> sonuc = db.Uyeler.Where(p => p.uye_id == id).ToList();
+
+            if (sonuc != null)
+                return sonuc;
+
+            else
+                return null;
         }
     }
 }

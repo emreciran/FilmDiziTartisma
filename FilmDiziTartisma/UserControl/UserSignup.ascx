@@ -19,13 +19,6 @@
             <asp:TextBox ID="password" placeholder="Şifreniz" TextMode="Password" runat="server"></asp:TextBox>
             <i class="uil uil-lock icon"></i>
         </div>
-        <div class="input-field" style="display:flex; align-items:center;">
-            <p style="margin-right: 10px">Yetki Seçiniz: </p>
-            <asp:DropDownList ID="drp_yetki" class="select" runat="server">
-                <asp:ListItem class="listitem">Kullanıcı</asp:ListItem>
-                <asp:ListItem class="listitem">Yazar</asp:ListItem>
-            </asp:DropDownList>
-        </div>
 
         <div class="checkbox-text">
             <asp:HyperLink ID="HyperLink2" class="text" runat="server" NavigateUrl="~/SifremiUnuttum">Şifremi unuttum</asp:HyperLink>

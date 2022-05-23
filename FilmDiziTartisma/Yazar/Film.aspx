@@ -1,19 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Film.aspx.cs" Inherits="FilmDiziTartisma.Yazar.Film" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/YazarLayout.Master" AutoEventWireup="true" CodeBehind="Film.aspx.cs" Inherits="FilmDiziTartisma.Yazar.Film" EnableEventValidation="false" %>
 
 <%@ Register Src="~/UserControl/Yazar/UserFilm.ascx" TagPrefix="uc1" TagName="UserFilm" %>
 
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <uc1:UserFilm runat="server" ID="UserFilm" />
-        </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .gridview{
+            width:100%; 
+        }
+        .shorter{
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap;  
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <uc1:UserFilm runat="server" ID="UserFilm" />
+</asp:Content>

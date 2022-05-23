@@ -15,33 +15,6 @@ namespace FilmDiziTartisma.UserControl.Admin
     {
 
         /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
         /// txt_yonetmen_ad control.
         /// </summary>
         /// <remarks>
@@ -60,21 +33,75 @@ namespace FilmDiziTartisma.UserControl.Admin
         protected global::System.Web.UI.WebControls.TextBox txt_yonetmen_soyad;
 
         /// <summary>
-        /// fileupload control.
+        /// txt_yonetmen_foto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileupload;
+        protected global::System.Web.UI.WebControls.TextBox txt_yonetmen_foto;
 
         /// <summary>
-        /// btn_kategori_ekle control.
+        /// btn_ekle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_kategori_ekle;
+        protected global::System.Web.UI.WebControls.Button btn_ekle;
+
+        /// <summary>
+        /// txt_yonetmen_guncelle_id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_yonetmen_guncelle_id;
+
+        /// <summary>
+        /// txt_yonetmen_guncelle_ad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_yonetmen_guncelle_ad;
+
+        /// <summary>
+        /// txt_yonetmen_guncelle_soyad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_yonetmen_guncelle_soyad;
+
+        /// <summary>
+        /// txt_yonetmen_guncelle_foto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_yonetmen_guncelle_foto;
+
+        /// <summary>
+        /// btn_guncelle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_guncelle;
+
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

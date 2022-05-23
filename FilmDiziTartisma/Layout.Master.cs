@@ -20,7 +20,7 @@ namespace FilmDiziTartisma
         {
             System.Web.HttpContext.Current.Session["Kullanici"] = null;
 
-            Response.Redirect("Giris");
+            Response.Redirect("../Giris");
         }
     }
 }

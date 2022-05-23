@@ -11,11 +11,11 @@ namespace Siniflarim
         Veritabani.FilmDiziEntities db = new Veritabani.FilmDiziEntities();
         Veritabani.Yonetmenler yonetmen = new Veritabani.Yonetmenler();
 
-        public string YonetmenEkle(string yonetmenAd, string yonetmenSoyad, string yonetmenFotoUrl)
+        public string YonetmenEkle(string yonetmenAd, string yonetmenSoyad, string yonetmenFoto)
         {
             yonetmen.yonetmenAd = yonetmenAd;
             yonetmen.yonetmenSoyad = yonetmenSoyad;
-            yonetmen.yonetmenFotoPath = yonetmenFotoUrl;
+            yonetmen.yonetmenFoto = yonetmenFoto;
 
             db.Yonetmenler.Add(yonetmen);
 
@@ -27,13 +27,13 @@ namespace Siniflarim
                 return "0";
         }
 
-        public string YonetmenGuncelle(int yonetmenID, string yonetmenAd, string yonetmenSoyad, string yonetmenFotoUrl)
+        public string YonetmenGuncelle(int yonetmenID, string yonetmenAd, string yonetmenSoyad, string yonetmenFoto)
         {
             var aranan = db.Yonetmenler.Where(p => p.yonetmen_id == yonetmenID).FirstOrDefault();
 
             aranan.yonetmenAd = yonetmenAd;
             aranan.yonetmenSoyad = yonetmenSoyad;
-            aranan.yonetmenFotoPath = yonetmenFotoUrl;
+            aranan.yonetmenFoto = yonetmenFoto;
 
             var sonuc = db.SaveChanges();
 

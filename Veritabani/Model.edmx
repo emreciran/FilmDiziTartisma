@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FilmDiziModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FilmDiziModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Dizi_Kategori">
           <Key>
             <PropertyRef Name="dizi_kategori_id" />
@@ -28,12 +28,14 @@
           <Property Name="dizi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="diziAd" Type="nvarchar(max)" />
           <Property Name="diziSezonsayisi" Type="int" />
-          <Property Name="diziYayintarihi" Type="nvarchar" MaxLength="50" />
           <Property Name="IMDB" Type="nvarchar" MaxLength="10" />
           <Property Name="diziAciklama" Type="nvarchar(max)" />
           <Property Name="diziVideo" Type="nvarchar(max)" />
           <Property Name="diziYonetmen" Type="nvarchar" MaxLength="50" />
+          <Property Name="diziYonetmenFoto" Type="nvarchar(max)" />
           <Property Name="diziFoto" Type="nvarchar(max)" />
+          <Property Name="diziOyuncu" Type="nvarchar(max)" />
+          <Property Name="diziOyuncuFoto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Film_Kategori">
           <Key>
@@ -62,8 +64,10 @@
           <Property Name="filmAciklama" Type="nvarchar(max)" />
           <Property Name="filmVideo" Type="nvarchar(max)" />
           <Property Name="filmYonetmen" Type="nvarchar" MaxLength="50" />
-          <Property Name="filmYayintarihi" Type="nvarchar" MaxLength="50" />
+          <Property Name="filmYonetmenFoto" Type="nvarchar(max)" />
           <Property Name="filmFoto" Type="nvarchar(max)" />
+          <Property Name="filmOyuncu" Type="nvarchar(max)" />
+          <Property Name="filmOyuncuFoto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Kategoriler">
           <Key>
@@ -112,7 +116,7 @@
           <Property Name="yonetmen_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="yonetmenAd" Type="nvarchar(max)" />
           <Property Name="yonetmenSoyad" Type="nvarchar(max)" />
-          <Property Name="yonetmenFotoPath" Type="nvarchar(max)" />
+          <Property Name="yonetmenFoto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Yorumlar">
           <Key>
@@ -124,6 +128,8 @@
           <Property Name="yorumIcerik" Type="nvarchar(max)" />
           <Property Name="yorumTarih" Type="nvarchar" MaxLength="50" />
           <Property Name="yorumOnay" Type="bit" />
+          <Property Name="yorumFilmID" Type="int" />
+          <Property Name="yorumDiziID" Type="int" />
         </EntityType>
         <EntityContainer Name="FilmDiziModelStoreContainer">
           <EntitySet Name="Dizi_Kategori" EntityType="Self.Dizi_Kategori" Schema="dbo" store:Type="Tables" />
@@ -139,8 +145,7 @@
           <EntitySet Name="Yonetmenler" EntityType="Self.Yonetmenler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FilmDiziModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -167,12 +172,14 @@
           <Property Name="dizi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="diziAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="diziSezonsayisi" Type="Int32" />
-          <Property Name="diziYayintarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IMDB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="diziAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="diziVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="diziYonetmen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="diziFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diziOyuncu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diziOyuncuFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="diziYonetmenFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Film_Kategori">
           <Key>
@@ -201,8 +208,10 @@
           <Property Name="filmAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="filmVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="filmYonetmen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="filmYayintarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="filmFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filmOyuncu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filmYonetmenFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filmOyuncuFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Kategoriler">
           <Key>
@@ -251,7 +260,7 @@
           <Property Name="yonetmen_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="yonetmenAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="yonetmenSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="yonetmenFotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="yonetmenFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Yorumlar">
           <Key>
@@ -263,6 +272,8 @@
           <Property Name="yorumIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="yorumTarih" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="yorumOnay" Type="Boolean" />
+          <Property Name="yorumFilmID" Type="Int32" />
+          <Property Name="yorumDiziID" Type="Int32" />
         </EntityType>
         <EntityContainer Name="FilmDiziEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Dizi_Kategori" EntityType="Self.Dizi_Kategori" />
@@ -305,15 +316,17 @@
           <EntitySetMapping Name="Diziler">
             <EntityTypeMapping TypeName="FilmDiziModel.Diziler">
               <MappingFragment StoreEntitySet="Diziler">
+                <ScalarProperty Name="diziYonetmenFoto" ColumnName="diziYonetmenFoto" />
+                <ScalarProperty Name="diziOyuncuFoto" ColumnName="diziOyuncuFoto" />
                 <ScalarProperty Name="dizi_id" ColumnName="dizi_id" />
                 <ScalarProperty Name="diziAd" ColumnName="diziAd" />
                 <ScalarProperty Name="diziSezonsayisi" ColumnName="diziSezonsayisi" />
-                <ScalarProperty Name="diziYayintarihi" ColumnName="diziYayintarihi" />
                 <ScalarProperty Name="IMDB" ColumnName="IMDB" />
                 <ScalarProperty Name="diziAciklama" ColumnName="diziAciklama" />
                 <ScalarProperty Name="diziVideo" ColumnName="diziVideo" />
                 <ScalarProperty Name="diziYonetmen" ColumnName="diziYonetmen" />
                 <ScalarProperty Name="diziFoto" ColumnName="diziFoto" />
+                <ScalarProperty Name="diziOyuncu" ColumnName="diziOyuncu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -338,6 +351,8 @@
           <EntitySetMapping Name="Filmler">
             <EntityTypeMapping TypeName="FilmDiziModel.Filmler">
               <MappingFragment StoreEntitySet="Filmler">
+                <ScalarProperty Name="filmOyuncuFoto" ColumnName="filmOyuncuFoto" />
+                <ScalarProperty Name="filmYonetmenFoto" ColumnName="filmYonetmenFoto" />
                 <ScalarProperty Name="film_id" ColumnName="film_id" />
                 <ScalarProperty Name="filmAd" ColumnName="filmAd" />
                 <ScalarProperty Name="filmSuresi" ColumnName="filmSuresi" />
@@ -345,8 +360,8 @@
                 <ScalarProperty Name="filmAciklama" ColumnName="filmAciklama" />
                 <ScalarProperty Name="filmVideo" ColumnName="filmVideo" />
                 <ScalarProperty Name="filmYonetmen" ColumnName="filmYonetmen" />
-                <ScalarProperty Name="filmYayintarihi" ColumnName="filmYayintarihi" />
                 <ScalarProperty Name="filmFoto" ColumnName="filmFoto" />
+                <ScalarProperty Name="filmOyuncu" ColumnName="filmOyuncu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -400,7 +415,7 @@
                 <ScalarProperty Name="yonetmen_id" ColumnName="yonetmen_id" />
                 <ScalarProperty Name="yonetmenAd" ColumnName="yonetmenAd" />
                 <ScalarProperty Name="yonetmenSoyad" ColumnName="yonetmenSoyad" />
-                <ScalarProperty Name="yonetmenFotoPath" ColumnName="yonetmenFotoPath" />
+                <ScalarProperty Name="yonetmenFoto" ColumnName="yonetmenFoto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -413,6 +428,8 @@
                 <ScalarProperty Name="yorumIcerik" ColumnName="yorumIcerik" />
                 <ScalarProperty Name="yorumTarih" ColumnName="yorumTarih" />
                 <ScalarProperty Name="yorumOnay" ColumnName="yorumOnay" />
+                <ScalarProperty Name="yorumFilmID" ColumnName="yorumFilmID" />
+                <ScalarProperty Name="yorumDiziID" ColumnName="yorumDiziID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

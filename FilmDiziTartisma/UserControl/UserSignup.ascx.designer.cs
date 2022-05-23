@@ -60,15 +60,6 @@ namespace FilmDiziTartisma.UserControl
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
-        /// drp_yetki control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drp_yetki;
-
-        /// <summary>
         /// HyperLink2 control.
         /// </summary>
         /// <remarks>

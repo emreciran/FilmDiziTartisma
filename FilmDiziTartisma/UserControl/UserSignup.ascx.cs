@@ -22,12 +22,9 @@ namespace FilmDiziTartisma.UserControl
             var surname_ = surname.Text;
             var email_ = email.Text;
             var password_ = password.Text;
-            var yetki = drp_yetki.SelectedItem.Text;
+            var yetki_ = "Kullanıcı";
 
-            if (yetki == null)
-                yetki = "Kullanıcı";
-
-            var sonuc = veriekle.VeriEkleme(name_, surname_, email_, password_, yetki);
+            var sonuc = veriekle.VeriEkleme(name_, surname_, email_, password_, yetki_);
 
             if (sonuc == "1")
             {

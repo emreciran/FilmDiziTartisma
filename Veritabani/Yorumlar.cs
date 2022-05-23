@@ -20,5 +20,7 @@ namespace Veritabani
         public string yorumIcerik { get; set; }
         public string yorumTarih { get; set; }
         public Nullable<bool> yorumOnay { get; set; }
+        public Nullable<int> yorumFilmID { get; set; }
+        public Nullable<int> yorumDiziID { get; set; }
     }
 }

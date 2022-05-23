@@ -17,6 +17,6 @@ namespace Veritabani
         public int yonetmen_id { get; set; }
         public string yonetmenAd { get; set; }
         public string yonetmenSoyad { get; set; }
-        public string yonetmenFotoPath { get; set; }
+        public string yonetmenFoto { get; set; }
     }
 }

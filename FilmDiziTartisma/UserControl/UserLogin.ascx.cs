@@ -27,7 +27,7 @@ namespace FilmDiziTartisma.UserControl
 
                 if (kullanici.uyeYetki == "Kullanıcı")
                 {
-                    Response.Redirect("/AnaSayfa");
+                    Response.Redirect("/Kullanici/AnaSayfa");
                 }
                 else if (kullanici.uyeYetki == "Yazar")
                 {

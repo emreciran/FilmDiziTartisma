@@ -11,6 +11,9 @@ namespace FilmDiziTartisma.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (this.Page.IsPostBack)
+                return;
+
             var yetki = (Veritabani.Uyeler)System.Web.HttpContext.Current.Session["Kullanici"];
             var menu = new Siniflarim.Menu().GetByYetki(yetki.uyeYetki).ToList();
 
@@ -20,11 +23,12 @@ namespace FilmDiziTartisma.UserControl
 
                 for (int i = 0; i < menu.Count; i++)
                 {
-                    menu_item += "<li \" class=\"nav-item d-none d-sm-inline-block\">";
+                    menu_item += "<li \" class=\"nav-item d-sm-inline-block\">";
                     menu_item += "<a href=\"" + menu[i].menuAdres + "\" class=\"menu_link nav-link\">" + menu[i].menuAdi+"</a>";
                     menu_item += "</li>";
                 }
                 lt_menu.Text += menu_item;
+ 
             }
         }
     }

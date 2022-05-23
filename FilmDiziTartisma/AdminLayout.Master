@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css">
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -761,15 +762,11 @@
             <!-- jQuery -->
             <script src="../../AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
             <!-- jQuery UI 1.11.4 -->
-            <script src="../../AdminLTE-3.2.0/plugins/jquery-ui/jquery-ui.min.js"></script>
             <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-            <script>
-                $.widget.bridge('uibutton', $.ui.button)
-            </script>
+
             <!-- Bootstrap 4 -->
             <script src="../../AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <!-- ChartJS -->
-            <script src="../../AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+            <script src="../../AdminLTE-3.2.0/plugins/sweetalert2/sweetalert2.min.js"></script>
             <!-- Sparkline -->
             <script src="../../AdminLTE-3.2.0/plugins/sparklines/sparkline.js"></script>
             <!-- JQVMap -->
@@ -792,6 +789,7 @@
             <script src="../../AdminLTE-3.2.0/dist/js/demo.js"></script>
             <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
             <script src="../../AdminLTE-3.2.0/dist/js/pages/dashboard.js"></script>
+            <script src="../../AdminLTE-3.2.0/plugins/jquery-ui/jquery-ui.min.js"></script>
         </div>
     </form>
 </body>

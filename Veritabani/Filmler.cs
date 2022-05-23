@@ -21,7 +21,9 @@ namespace Veritabani
         public string filmAciklama { get; set; }
         public string filmVideo { get; set; }
         public string filmYonetmen { get; set; }
-        public string filmYayintarihi { get; set; }
         public string filmFoto { get; set; }
+        public string filmOyuncu { get; set; }
+        public string filmYonetmenFoto { get; set; }
+        public string filmOyuncuFoto { get; set; }
     }
 }

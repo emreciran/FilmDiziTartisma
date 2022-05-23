@@ -20,9 +20,6 @@ namespace FilmDiziTartisma.UserControl
 
         protected void forgot_password_Click(object sender, EventArgs e)
         {
-            string dosya_yolu = @"C:\Users\Emre\source\repos\FilmDiziTartisma\smtp.txt";
-            string[] satirlar = System.IO.File.ReadAllLines(dosya_yolu);
-
             var kullanici = uye.GetByEmail(txt_email.Text);
 
             if (kullanici != null)
@@ -32,13 +29,13 @@ namespace FilmDiziTartisma.UserControl
                 String ad = kullanici.uyeAd;
                 String soyad = kullanici.uyeSoyad;
                 SmtpClient client = new SmtpClient();
-                client.Credentials = new NetworkCredential(satirlar[0], satirlar[1]);
+                client.Credentials = new NetworkCredential("emredeneme09@gmail.com", "tshmjwryydlcmlcy");
                 client.Port = 587;
                 client.Host = "smtp.gmail.com";
                 client.EnableSsl = true;
                 MailMessage mail = new MailMessage();
                 mail.To.Add(kullanici.uyeEmail);
-                mail.From = new MailAddress(satirlar[0], "Şifre Yenileme");
+                mail.From = new MailAddress("emredeneme09@gmail.com", "Şifre Yenileme");
                 mail.IsBodyHtml = true;
                 mail.Subject = "Şifre Sıfırmalama";
                 mail.Body += "Merhaba, " + ad + " " + soyad + "<br/>Şifreni sıfırlamak için linke tıkla <br/> https://localhost:44389/SifreSifirla?uid=" + guid;

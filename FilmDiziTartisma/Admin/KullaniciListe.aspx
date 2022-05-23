@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminLayout.Master" AutoEventWireup="true" CodeBehind="KullaniciListe.aspx.cs" Inherits="FilmDiziTartisma.Admin.KullaniciListe" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminLayout.Master" AutoEventWireup="true" CodeBehind="KullaniciListe.aspx.cs" Inherits="FilmDiziTartisma.Admin.KullaniciListe" EnableEventValidation="false" %>
 
 <%@ Register Src="~/UserControl/Admin/UserKullaniciListe.ascx" TagPrefix="uc1" TagName="UserKullaniciListe" %>
 

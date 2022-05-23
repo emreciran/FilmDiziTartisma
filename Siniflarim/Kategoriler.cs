@@ -17,7 +17,7 @@ namespace Siniflarim
 
             db.Kategoriler.Add(kategori);
 
-            var sonuc = db.SaveChanges();
+            int sonuc = db.SaveChanges();
 
             if (sonuc == 1)
                 return "1";
@@ -31,7 +31,7 @@ namespace Siniflarim
 
             aranan.kategoriAd = kategoriAd;
 
-            var sonuc = db.SaveChanges();
+            int sonuc = db.SaveChanges();
 
             if (sonuc == 1)
                 return "1";
@@ -45,7 +45,7 @@ namespace Siniflarim
 
             db.Kategoriler.Remove(aranan);
 
-            var sonuc = db.SaveChanges();
+            int sonuc = db.SaveChanges();
 
             if (sonuc == 1)
                 return "1";

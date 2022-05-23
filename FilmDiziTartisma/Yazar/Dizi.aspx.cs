@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace FilmDiziTartisma.Yazar
 {
-    public partial class Dizi : Siniflarim.YazarYetkiKontrol
+    public partial class Dizi : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

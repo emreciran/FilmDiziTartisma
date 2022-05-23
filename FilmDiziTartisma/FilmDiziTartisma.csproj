@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,12 +46,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.8\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -62,6 +70,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.8\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -336,12 +347,6 @@
     <Content Include="AdminLTE-3.2.0\plugins\bs-stepper\css\bs-stepper.min.css" />
     <Content Include="AdminLTE-3.2.0\plugins\bs-stepper\js\bs-stepper.js" />
     <Content Include="AdminLTE-3.2.0\plugins\bs-stepper\js\bs-stepper.min.js" />
-    <Content Include="AdminLTE-3.2.0\plugins\chart.js\Chart.bundle.js" />
-    <Content Include="AdminLTE-3.2.0\plugins\chart.js\Chart.bundle.min.js" />
-    <Content Include="AdminLTE-3.2.0\plugins\chart.js\Chart.css" />
-    <Content Include="AdminLTE-3.2.0\plugins\chart.js\Chart.js" />
-    <Content Include="AdminLTE-3.2.0\plugins\chart.js\Chart.min.css" />
-    <Content Include="AdminLTE-3.2.0\plugins\chart.js\Chart.min.js" />
     <Content Include="AdminLTE-3.2.0\plugins\codemirror\addon\comment\comment.js" />
     <Content Include="AdminLTE-3.2.0\plugins\codemirror\addon\comment\continuecomment.js" />
     <Content Include="AdminLTE-3.2.0\plugins\codemirror\addon\dialog\dialog.css" />
@@ -2181,6 +2186,7 @@
     <Content Include="Admin\KullaniciListe.aspx" />
     <Content Include="Admin\Oyuncu.aspx" />
     <Content Include="Admin\Yonetmen.aspx" />
+    <Content Include="Admin\Yorum.aspx" />
     <Content Include="assets\css\fontawesome-all.min.css" />
     <Content Include="assets\css\form.css" />
     <Content Include="assets\css\main.css" />
@@ -2196,11 +2202,12 @@
     <Content Include="assets\webfonts\fa-solid-900.svg" />
     <Content Include="Category.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="Details.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Home.aspx" />
+    <Content Include="Kullanici\DiziDetay.aspx" />
     <Content Include="Kullanici\DiziListe.aspx" />
+    <Content Include="Kullanici\FilmDetay.aspx" />
     <Content Include="Kullanici\FilmListe.aspx" />
+    <Content Include="Kullanici\Home.aspx" />
     <Content Include="Kullanici\KategoriListe.aspx" />
     <Content Include="Kullanici\Profil.aspx" />
     <Content Include="ResetPassword.aspx" />
@@ -2215,8 +2222,12 @@
     <Content Include="UserControl\Admin\UserKullaniciListe.ascx" />
     <Content Include="UserControl\Admin\UserOyuncu.ascx" />
     <Content Include="UserControl\Admin\UserYonetmen.ascx" />
+    <Content Include="UserControl\Admin\UserYorum.ascx" />
+    <Content Include="UserControl\Kullanici\UserDiziDetay.ascx" />
     <Content Include="UserControl\Kullanici\UserDiziListe.ascx" />
+    <Content Include="UserControl\Kullanici\UserFilmDetay.ascx" />
     <Content Include="UserControl\Kullanici\UserFilmListe.ascx" />
+    <Content Include="UserControl\Kullanici\UserHome.ascx" />
     <Content Include="UserControl\Kullanici\UserKategoriListe.ascx" />
     <Content Include="UserControl\Kullanici\UserProfil.ascx" />
     <Content Include="UserControl\UserForgotPassword.ascx" />
@@ -2266,6 +2277,13 @@
     <Compile Include="Admin\Yonetmen.aspx.designer.cs">
       <DependentUpon>Yonetmen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Yorum.aspx.cs">
+      <DependentUpon>Yorum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Yorum.aspx.designer.cs">
+      <DependentUpon>Yorum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Category.aspx.cs">
       <DependentUpon>Category.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2280,22 +2298,15 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Details.aspx.cs">
-      <DependentUpon>Details.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Details.aspx.designer.cs">
-      <DependentUpon>Details.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Kullanici\DiziDetay.aspx.cs">
+      <DependentUpon>DiziDetay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Kullanici\DiziDetay.aspx.designer.cs">
+      <DependentUpon>DiziDetay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Kullanici\DiziListe.aspx.cs">
       <DependentUpon>DiziListe.aspx</DependentUpon>
@@ -2304,12 +2315,26 @@
     <Compile Include="Kullanici\DiziListe.aspx.designer.cs">
       <DependentUpon>DiziListe.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Kullanici\FilmDetay.aspx.cs">
+      <DependentUpon>FilmDetay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanici\FilmDetay.aspx.designer.cs">
+      <DependentUpon>FilmDetay.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Kullanici\FilmListe.aspx.cs">
       <DependentUpon>FilmListe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Kullanici\FilmListe.aspx.designer.cs">
       <DependentUpon>FilmListe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanici\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kullanici\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Kullanici\KategoriListe.aspx.cs">
       <DependentUpon>KategoriListe.aspx</DependentUpon>
@@ -2389,6 +2414,20 @@
     <Compile Include="UserControl\Admin\UserYonetmen.ascx.designer.cs">
       <DependentUpon>UserYonetmen.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Admin\UserYorum.ascx.cs">
+      <DependentUpon>UserYorum.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Admin\UserYorum.ascx.designer.cs">
+      <DependentUpon>UserYorum.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Kullanici\UserDiziDetay.ascx.cs">
+      <DependentUpon>UserDiziDetay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Kullanici\UserDiziDetay.ascx.designer.cs">
+      <DependentUpon>UserDiziDetay.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Kullanici\UserDiziListe.ascx.cs">
       <DependentUpon>UserDiziListe.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2396,12 +2435,26 @@
     <Compile Include="UserControl\Kullanici\UserDiziListe.ascx.designer.cs">
       <DependentUpon>UserDiziListe.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Kullanici\UserFilmDetay.ascx.cs">
+      <DependentUpon>UserFilmDetay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Kullanici\UserFilmDetay.ascx.designer.cs">
+      <DependentUpon>UserFilmDetay.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Kullanici\UserFilmListe.ascx.cs">
       <DependentUpon>UserFilmListe.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControl\Kullanici\UserFilmListe.ascx.designer.cs">
       <DependentUpon>UserFilmListe.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Kullanici\UserHome.ascx.cs">
+      <DependentUpon>UserHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Kullanici\UserHome.ascx.designer.cs">
+      <DependentUpon>UserHome.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Kullanici\UserKategoriListe.ascx.cs">
       <DependentUpon>UserKategoriListe.ascx</DependentUpon>
@@ -2465,6 +2518,13 @@
     </Compile>
     <Compile Include="UserControl\Yazar\UserFilm.ascx.designer.cs">
       <DependentUpon>UserFilm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="YazarLayout.Master.cs">
+      <DependentUpon>YazarLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YazarLayout.Master.designer.cs">
+      <DependentUpon>YazarLayout.Master</DependentUpon>
     </Compile>
     <Compile Include="Yazar\Dizi.aspx.cs">
       <DependentUpon>Dizi.aspx</DependentUpon>
@@ -2838,6 +2898,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="YazarLayout.Master" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -2887,7 +2948,10 @@
       <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

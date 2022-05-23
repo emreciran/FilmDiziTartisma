@@ -11,13 +11,18 @@ namespace Siniflarim
         Veritabani.FilmDiziEntities db = new Veritabani.FilmDiziEntities();
         Veritabani.Diziler dizi = new Veritabani.Diziler();
 
-        public string DiziEkleme(string diziAd, int diziSezonSayisi, string IMDB, string diziAciklama, string diziYonetmen)
+        public string DiziEkleme(string diziAd, int diziSezonSayisi, string IMDB, string diziAciklama, string diziVideo, string diziYonetmen, string diziYonetmenFoto, string diziFoto, string diziOyuncu, string diziOyuncuFoto)
         {
             dizi.diziAd = diziAd;
             dizi.diziSezonsayisi = diziSezonSayisi;
             dizi.IMDB = IMDB;
             dizi.diziAciklama = diziAciklama;
+            dizi.diziVideo = diziVideo;
             dizi.diziYonetmen = diziYonetmen;
+            dizi.diziYonetmenFoto = diziYonetmenFoto;
+            dizi.diziFoto = diziFoto;
+            dizi.diziOyuncu = diziOyuncu;
+            dizi.diziOyuncuFoto = diziOyuncuFoto;
 
             db.Diziler.Add(dizi);
             var sonuc = db.SaveChanges();
@@ -28,17 +33,22 @@ namespace Siniflarim
                 return "0";
         }
 
-        public string DiziGuncelle(int diziID, string diziAd, int diziSezonSayisi, string IMDB, string diziAciklama, string diziYonetmen)
+        public string DiziGuncelle(int id, string diziAd, int diziSezonSayisi, string IMDB, string diziAciklama, string diziVideo, string diziYonetmen, string diziYonetmenFoto, string diziFoto, string diziOyuncu, string diziOyuncuFoto)
         {
-            var aranan = db.Diziler.Where(p => p.dizi_id == diziID).ToList().FirstOrDefault();
+            var aranan = db.Diziler.Where(p => p.dizi_id == id).FirstOrDefault();
 
             aranan.diziAd = diziAd;
             aranan.diziSezonsayisi = diziSezonSayisi;
             aranan.IMDB = IMDB;
             aranan.diziAciklama = diziAciklama;
+            aranan.diziVideo = diziVideo;
             aranan.diziYonetmen = diziYonetmen;
+            aranan.diziYonetmenFoto = diziYonetmenFoto;
+            aranan.diziFoto = diziFoto;
+            aranan.diziOyuncu = diziOyuncu;
+            aranan.diziOyuncuFoto = diziOyuncuFoto;
 
-            var sonuc = db.SaveChanges();
+            int sonuc = db.SaveChanges();
 
             if (sonuc == 1)
                 return "1";
@@ -46,9 +56,9 @@ namespace Siniflarim
                 return "0";
         }
 
-        public string DiziSilme(int diziID)
+        public string DiziSilme(int id)
         {
-            var aranan = db.Diziler.Where(p => p.dizi_id == diziID).ToList().FirstOrDefault();
+            var aranan = db.Diziler.Where(p => p.dizi_id == id).FirstOrDefault();
 
             db.Diziler.Remove(aranan);
 
@@ -65,6 +75,17 @@ namespace Siniflarim
             var data = db.Diziler.ToList();
 
             return data;
+        }
+
+        public List<Veritabani.Diziler> GetByDiziID(int id)
+        {
+            List<Veritabani.Diziler> sonuc = db.Diziler.Where(p => p.dizi_id == id).ToList();
+
+            if (sonuc != null)
+                return sonuc;
+
+            else
+                return null;
         }
     }
 }

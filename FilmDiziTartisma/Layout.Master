@@ -16,67 +16,69 @@
     </asp:ContentPlaceHolder>
 </head>
 <body class="is-preload">
-    <div id="wrapper">
-        <!-- Header -->
-        <header id="header">
-            <div class="inner" style="display: flex; justify-content: space-between;">
+    <form runat="server">
 
-                <!-- Logo -->
-                <asp:HyperLink ID="HyperLink2" class="logo" NavigateUrl="~/AnaSayfa" runat="server">
+
+        <div id="wrapper">
+            <!-- Header -->
+            <header id="header">
+                <div class="inner" style="display: flex; justify-content: space-between;">
+
+                    <!-- Logo -->
+                    <asp:HyperLink ID="HyperLink2" class="logo" NavigateUrl="~/Kullanici/AnaSayfa" runat="server">
 								<span class="symbol"><img src="../../images/logo.svg" alt="" /></span><span class="title">FilmDizi</span>
-                </asp:HyperLink>
+                    </asp:HyperLink>
 
-                <asp:Label ID="user_email" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="user_email" runat="server" Text=""></asp:Label>
 
-                <form id="form_cikis_yap" runat="server">
-                    <asp:Button ID="btn_cikis_yap" runat="server" style="padding: 0 .5rem 0 .5rem" Text="Çıkış Yap" OnClick="btn_cikis_yap_Click" />
-                </form>    
+                    <asp:Button ID="btn_cikis_yap" runat="server" Style="padding: 0 .5rem 0 .5rem" Text="Çıkış Yap" OnClick="btn_cikis_yap_Click" />
 
-                <!-- Nav -->
-                <nav>
-                    <ul>
-                        <li><a href="#menu">Menu</a></li>
-                    </ul>
-                </nav>
+                    <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#menu">Menu</a></li>
+                        </ul>
+                    </nav>
 
-            </div>
-        </header>
+                </div>
+            </header>
 
-        <!-- Menu -->
-        <nav id="menu">
-            <h2>Menu</h2>
-            <ul>
-                <uc1:UserMenu runat="server" ID="UserMenu" />
-            </ul>
-        </nav>
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <section>
-                    <h2>FILMDIZI</h2>
-                </section>
-                <section>
-                    <h2>Takip</h2>
-
-                    <ul class="icons">
-                        <li>
-                            <asp:HyperLink ID="HyperLink18" runat="server" class="icon brands style2 fa-github" Target="_blank" NavigateUrl="https://github.com/emreciran">
-											<span class="label">GitHub</span>
-                            </asp:HyperLink>
-                        </li>
-                    </ul>
-                </section>
-                <ul class="copyright">
-                    <li>&copy; Emre Efe Ciran. All rights reserved</li>
+            <!-- Menu -->
+            <nav id="menu">
+                <h2>Menu</h2>
+                <ul>
+                    <uc1:UserMenu runat="server" ID="UserMenu" />
                 </ul>
-            </div>
-        </footer>
+            </nav>
 
-    </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <section>
+                        <h2>FILMDIZI</h2>
+                    </section>
+                    <section>
+                        <h2>Takip</h2>
+
+                        <ul class="icons">
+                            <li>
+                                <asp:HyperLink ID="HyperLink18" runat="server" class="icon brands style2 fa-github" Target="_blank" NavigateUrl="https://github.com/emreciran">
+											<span class="label">GitHub</span>
+                                </asp:HyperLink>
+                            </li>
+                        </ul>
+                    </section>
+                    <ul class="copyright">
+                        <li>&copy; Emre Efe Ciran. All rights reserved</li>
+                    </ul>
+                </div>
+            </footer>
+
+        </div>
+    </form>
 
     <!-- Scripts -->
     <script src="../../assets/js/jquery.min.js"></script>

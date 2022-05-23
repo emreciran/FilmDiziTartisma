@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserForgotPassword.ascx.cs" Inherits="FilmDiziTartisma.UserControl.UserForgotPassword" %>
 
-<div class="forms">
+<div class="forms" style="display:flex; align-items:center; justify-content:center;">
     <div class="form login">
         <span class="title">Şifremi unuttum</span>
 
